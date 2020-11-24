@@ -8,7 +8,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'your-app';
 
-  anotherComponentColor = '#900C3F';
+  cssComponentColor = '#900C3F';
 
   toggleTheme() {
     if (document.body.classList.contains('dark-theme')) {
@@ -20,11 +20,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     document.body.style.setProperty(
-      '--another-component-background-color',
-      this.anotherComponentColor
+      '--css-component-background-color',
+      this.cssComponentColor
     );
   }
   ngOnDestroy() {
-    document.body.style.removeProperty('--another-component-background-color');
+    document.body.style.removeProperty('--css-component-background-color');
   }
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { ExampleComponentComponent } from './example-component/example-component.component';
+import { MaterialComponentComponent } from './material-component/material-component.component';
 import { MatCardModule } from '@angular/material/card';
-import { AnotherComponentComponent } from './another-component/another-component.component';
+import { CssComponentComponent } from './css-component/css-component.component';
 
 @NgModule({
-  declarations: [ExampleComponentComponent, AnotherComponentComponent],
+  declarations: [MaterialComponentComponent, CssComponentComponent],
   imports: [MatCardModule],
-  exports: [ExampleComponentComponent, AnotherComponentComponent],
+  exports: [MaterialComponentComponent, CssComponentComponent],
 })
 export class YourLibraryModule {}

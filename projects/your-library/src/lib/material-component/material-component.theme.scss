@@ -1,6 +1,6 @@
 @import "~@angular/material/theming";
 
-@mixin example-component-theme($theme) {
+@mixin material-component-theme($theme) {
   $primary-color: map-get($theme, primary);
   // $accent-color: map-get($theme, accent);
   // $warn-color: map-get($theme, warn);
@@ -13,9 +13,9 @@
   // $accent: mat-color($accent-color) !important;
   // $warn: mat-color($warn-color) !important;
   $base: mat-color($foreground, base);
-  $card-color: mat-color($custom, example-component-card-color) !important;
+  $card-color: mat-color($custom, material-component-card-color) !important;
 
-  lib-example-component {
+  lib-material-component {
     mat-card {
       background-color: $card-color;
     }

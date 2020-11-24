@@ -2,6 +2,13 @@
 @include mat-core();
 @import "../../your-library/src/lib/theming.scss";
 
+$custom-light-theme-colors: (
+  material-component-card-color: map_get($mat-teal, 200),
+);
+$custom-dark-theme-colors: (
+  material-component-card-color: map_get($mat-amber, 700),
+);
+
 // Override mat-core-functions:
 @function _mat-create-light-color-config($primary, $accent, $warn: null) {
   @return (
