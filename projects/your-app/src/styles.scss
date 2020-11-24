@@ -1,0 +1,69 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$ngx-fire-ui-light: (
+  json-editor-hover: map_get($mat-gray, 100),
+);
+$ngx-fire-ui-dark: (
+  json-editor-hover: map_get($mat-gray, 700),
+);
+
+// Override mat-core-functions:
+@function _mat-create-light-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: false,
+    foreground: $mat-light-theme-foreground,
+    background: $mat-light-theme-background,
+    ngx-fire-ui: $ngx-fire-ui-light
+  );
+}
+@function _mat-create-dark-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat-palette($mat-red)),
+    is-dark: true,
+    foreground: $mat-dark-theme-foreground,
+    background: $mat-dark-theme-background,
+    ngx-fire-ui: $ngx-fire-ui-dark
+  );
+}
+
+$your-app-primary: mat-palette($mat-indigo);
+$your-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$your-app-light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $your-app-primary,
+      accent: $your-app-accent,
+    ),
+  )
+);
+$your-app-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $your-app-primary,
+      accent: $your-app-accent,
+    ),
+  )
+);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  &:not(.dark-theme) {
+    @include angular-material-theme($your-app-light-theme);
+  }
+  &.dark-theme {
+    @include angular-material-theme($your-app-dark-theme);
+  }
+}
