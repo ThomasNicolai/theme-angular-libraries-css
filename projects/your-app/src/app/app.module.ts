@@ -4,15 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ExampleComponentComponent } from 'projects/your-library/src/lib/example-component/example-component.component';
+import { YourLibraryModule } from 'projects/your-library/src/public-api';
+import { MatCardModule } from '@angular/material/card';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-  declarations: [AppComponent, ExampleComponentComponent],
+  declarations: [AppComponent],
   imports: [
+    YourLibraryModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSlideToggleModule,
     BrowserModule,
     AppRoutingModule,
+    MatSidenavModule,
     BrowserAnimationsModule,
-    ExampleComponentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

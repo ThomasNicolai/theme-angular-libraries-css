@@ -1,1 +1,14 @@
-<lib-example-component></lib-example-component>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <span class="logo" routerLink="/">🎨Custom Theming 🛠</span>
+    </mat-toolbar>
+
+    <lib-example-component></lib-example-component>
+    <lib-another-component></lib-another-component>
+    <mat-slide-toggle (click)="toggleTheme()">Dark Theme</mat-slide-toggle>
+  </mat-sidenav-content>
+</mat-sidenav-container>

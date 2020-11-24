@@ -1,0 +1,23 @@
+@import "~@angular/material/theming";
+
+@mixin example-component-theme($theme) {
+  $primary-color: map-get($theme, primary);
+  // $accent-color: map-get($theme, accent);
+  // $warn-color: map-get($theme, warn);
+  // $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $custom: map-get($theme, your-custom-colors);
+
+  $primary: mat-color($primary-color) !important;
+  // $primary-regular: mat-color($primary-color);
+  // $accent: mat-color($accent-color) !important;
+  // $warn: mat-color($warn-color) !important;
+  $base: mat-color($foreground, base);
+  $card-color: mat-color($custom, example-component-card-color) !important;
+
+  lib-example-component {
+    mat-card {
+      background-color: $card-color;
+    }
+  }
+}

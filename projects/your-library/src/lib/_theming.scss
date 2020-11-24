@@ -1,0 +1,14 @@
+@import "~@angular/material/theming";
+@import "./example-component/example-component.theme.scss";
+
+$custom-light-theme-colors: (
+  example-component-card-color: map_get($mat-teal, 200),
+);
+$custom-dark-theme-colors: (
+  example-component-card-color: map_get($mat-amber, 700),
+);
+
+@mixin your-library-theme($theme) {
+  @include example-component-theme($theme);
+  // include your other theming mixins under here:
+}

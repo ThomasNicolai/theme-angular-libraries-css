@@ -1,12 +1,6 @@
 @import "~@angular/material/theming";
 @include mat-core();
-
-$ngx-fire-ui-light: (
-  json-editor-hover: map_get($mat-gray, 100),
-);
-$ngx-fire-ui-dark: (
-  json-editor-hover: map_get($mat-gray, 700),
-);
+@import "../../your-library/src/lib/theming.scss";
 
 // Override mat-core-functions:
 @function _mat-create-light-color-config($primary, $accent, $warn: null) {
@@ -17,7 +11,7 @@ $ngx-fire-ui-dark: (
     is-dark: false,
     foreground: $mat-light-theme-foreground,
     background: $mat-light-theme-background,
-    ngx-fire-ui: $ngx-fire-ui-light
+    your-custom-colors: $custom-light-theme-colors
   );
 }
 @function _mat-create-dark-color-config($primary, $accent, $warn: null) {
@@ -28,13 +22,12 @@ $ngx-fire-ui-dark: (
     is-dark: true,
     foreground: $mat-dark-theme-foreground,
     background: $mat-dark-theme-background,
-    ngx-fire-ui: $ngx-fire-ui-dark
+    your-custom-colors: $custom-dark-theme-colors
   );
 }
 
 $your-app-primary: mat-palette($mat-indigo);
 $your-app-accent: mat-palette($mat-pink, A200, A100, A400);
-
 $your-app-light-theme: mat-light-theme(
   (
     color: (
@@ -52,18 +45,18 @@ $your-app-dark-theme: mat-dark-theme(
   )
 );
 
-html,
 body {
-  height: 100%;
-}
-body {
+  height: 100vh;
+  max-height: 100vh;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 
   &:not(.dark-theme) {
     @include angular-material-theme($your-app-light-theme);
+    @include your-library-theme($your-app-light-theme);
   }
   &.dark-theme {
     @include angular-material-theme($your-app-dark-theme);
+    @include your-library-theme($your-app-dark-theme);
   }
 }
