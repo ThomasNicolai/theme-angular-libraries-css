@@ -33,13 +33,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private cssService: CssComponentService) {}
 
-  toggleMaterialTheme() {
-    if (document.body.classList.contains('dark-theme')) {
-      document.body.classList.remove('dark-theme');
-    } else {
-      document.body.classList.add('dark-theme');
-    }
-  }
   toggleCssTheme(theme: string) {
     if (theme === '1') {
       this.cssService.setTheme(this.myTheme);
