@@ -3,3 +3,4 @@
  */
 
 export * from './lib/your-library.module';
+export * from './lib/css-component/css-component.service';

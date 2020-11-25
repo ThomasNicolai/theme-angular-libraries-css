@@ -1,4 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  Renderer2,
+  AfterViewInit,
+} from '@angular/core';
+import {
+  CssComponentService,
+  CssComponentTheme,
+} from 'projects/your-library/src/public-api';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +20,39 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'your-app';
 
-  cssComponentColor = '#900C3F';
+  cssThemeSelected: '1' | '2' = '1';
 
-  toggleTheme() {
+  myTheme: CssComponentTheme = {
+    backgroundColor: '#29b6f6',
+    textColor: '#eee',
+  };
+  anotherTheme: CssComponentTheme = {
+    backgroundColor: '#900C3F',
+    textColor: '#afafaf',
+  };
+
+  constructor(private cssService: CssComponentService) {}
+
+  toggleMaterialTheme() {
     if (document.body.classList.contains('dark-theme')) {
       document.body.classList.remove('dark-theme');
     } else {
       document.body.classList.add('dark-theme');
     }
   }
-
+  toggleCssTheme(theme: string) {
+    if (theme === '1') {
+      this.cssService.setTheme(this.myTheme);
+      this.cssThemeSelected = theme;
+    } else if (theme === '2') {
+      this.cssService.setTheme(this.anotherTheme);
+      this.cssThemeSelected = theme;
+    }
+  }
   ngOnInit() {
-    document.body.style.setProperty(
-      '--css-component-background-color',
-      this.cssComponentColor
-    );
+    this.toggleCssTheme(this.cssThemeSelected);
   }
   ngOnDestroy() {
-    document.body.style.removeProperty('--css-component-background-color');
+    this.cssService.removeTheme();
   }
 }

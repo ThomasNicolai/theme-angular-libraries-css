@@ -7,8 +7,28 @@
       <span class="logo" routerLink="/">🎨 Custom Theming 🛠</span>
     </mat-toolbar>
 
+    <h2 style="margin: 1em">Angular Material Theming</h2>
     <lib-material-component></lib-material-component>
+    <mat-slide-toggle (click)="toggleMaterialTheme()"
+      >Change material theme</mat-slide-toggle
+    >
+    <br />
+    <br />
+    <h2 style="margin: 1em">CSS variables theming</h2>
     <lib-css-component></lib-css-component>
-    <mat-slide-toggle (click)="toggleTheme()">Dark Theme</mat-slide-toggle>
+    <mat-radio-group [(ngModel)]="cssThemeSelected">
+      <mat-radio-button
+        style="margin-left: 1em"
+        value="1"
+        (click)="toggleCssTheme('1')"
+        >1</mat-radio-button
+      >
+      <mat-radio-button
+        style="margin-left: 1em"
+        value="2"
+        (click)="toggleCssTheme('2')"
+        >2</mat-radio-button
+      >
+    </mat-radio-group>
   </mat-sidenav-content>
 </mat-sidenav-container>

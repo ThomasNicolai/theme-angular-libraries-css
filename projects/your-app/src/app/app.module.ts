@@ -9,6 +9,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,8 +18,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     YourLibraryModule,
     MatToolbarModule,
     MatCardModule,
+    MatRadioModule,
     MatSlideToggleModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatSidenavModule,
     BrowserAnimationsModule,
